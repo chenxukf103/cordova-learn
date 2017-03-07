@@ -9,9 +9,6 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "cn.zhoujingen.aglieme"
-        },
-        "cordova-plugin-dialogs": {
-            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
         }
     },
     "dependent_plugins": {}
