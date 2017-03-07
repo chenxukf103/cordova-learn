@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8"><!-- 内容类型：标准的HTML -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
+    <!-- viewport告诉浏览器占用屏幕多大面积及怎样缩放内容 说明html页面占用全部屏幕并以其100%大小呈现，并且不允许用户以任何形式缩放页面 -->
+    <!-- viewport和相关属性不是必需的，如果不设置浏览器将使用它的默认设置 -->
+    <title>Hello_2</title>
+</head>
+<script src="../cordova.js" type="text/javascript" charset="uft-8"></script><!-- 加载了核心的Cordova API库，应用就可以使用核心Cordova功能 -->
+<!-- 因为3.0以后核心API迁移到了插件中，cordova.js文件只保留了一些基本功能 -->
+<script type="text/javascript">
+    function onBodyLoad() {
+        document.addEventListener("deviceready",onDeviceReady,false)
+    }
+    function onDeviceReady() {
+        navigator.notification.alert("Cordova is ready")
+    }
+</script>
+<body onload="onBodyLoad()">
+<p>Hello</p>
+</body>
+</html>
