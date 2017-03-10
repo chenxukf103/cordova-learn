@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="user-scale=no,initial-scale=1,maxmium-scale=1,minimum-scale=1,width=device-width;"/>
+    <title>点我之后</title>
+</head>
+<link rel="stylesheet" href="../css/jquery.mobile-1.4.5.css"/>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../js/jquery.mobile-1.4.5.js"></script>
+<script type="text/javascript" charset="UTF-8" src="../cordova.js"></script>
+<script type="text/javascript" charset="UTF-8">
+    function onBodyLoad() {
+        //cordova容器完成初始化时触发
+        document.addEventListener('deviceready',onDeviceReady,false);//第三个参数true表示在捕获过程中执行，反之就在冒泡过程中执行处理函数
+        document.addEventListener('backbutton', onBackButton, false);
+        document.addEventListener('menubutton', onMenuButton, false);
+        document.addEventListener('online', toOnLine, false);
+    }
+    function onDeviceReady() {
+        var br = "<br/>";
+        var element = document.getElementById("appInfo");
+        element.innerHTML = 'Cordova Version: ' + device.cordova + br + 'Platform: ' + device.platform + br + 'Model: ' + device.model + br + 'OS version: ' + device.version;
+    }
+    function onBackButton() {
+        alert("I am Back");
+    }
+    function onMenuButton() {
+        alert("I am Back Menu");
+    }
+    function toOnLine() {
+        alert("I am On Line");
+    }
+</script>
+<body onload="onBodyLoad()">
+<div data-role="page">
+    <div data-role="header" data-position="fixed">
+        <h1>Hello JQUERY MOBILE</h1>
+    </div>
+    <div data-role="content">
+        <p>This is a Cordova application that makes calls to the Cordova APIs and uses the jQuery Mobile framework.</p>
+        <p id="appInfo">Waiting for Cordova Initialization to complete.</p>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h1>Cordova Programming</h1>
+    </div>
+</div>
+
+</body>
+</html>

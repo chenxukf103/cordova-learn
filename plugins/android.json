@@ -9,7 +9,44 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "cn.zhoujingen.aglieme"
+        }
+    }
 }

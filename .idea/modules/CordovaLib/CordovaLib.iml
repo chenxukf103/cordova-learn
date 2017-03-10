@@ -59,13 +59,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/main/jni" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/jni" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/assets" type="java-test-resource" />
@@ -73,6 +66,13 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/jni" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/androidTest/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/jni" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/src/test/rs" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/build/intermediates/bundles" />
       <excludeFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/../../../platforms/android/CordovaLib/build/intermediates/dependency-cache" />

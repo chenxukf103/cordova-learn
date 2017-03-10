@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="user-scale=no,initial-scale=1,maxmium-scale=1,minimum-scale=1,width=device-width;"/>
+    <title>topcoast</title>
+    <link rel="stylesheet" href="../css/topcoat-mobile-light.css">
+</head>
+<script type="text/javascript" charset="UTF-8" src="../cordova.js"></script>
+<script type="text/javascript">
+    var objInfo = {};
+    window.onload = function () {//只能使用一次，后面会覆盖前面的
+        document.addEventListener('deviceready', onDeviceReady, false);
+    }
+    function onDeviceReady() {
+        //////
+        navigator.accelerometer.getCurrentAcceleration(function onSuccess(res) {///注意重大注意
+            toAcceleration(res);
+        }, function onFailure() {
+            alert("获取失败了！")
+        });
+        var watchId = navigator.accelerometer.watchAcceleration(function onSuccess(res) {
+            toAcceleration(res);
+        },function onFailure() {
+            alert("获取失败了！")
+        },{frequency:500});
+        setTimeout(function () {
+            navigator.accelerometer.clearWatch(watchId);
+        },900000);//15分钟
+        ///////
+        navigator.compass.getCurrentHeading(function onSuccess(res) {
+            toCompass(res)
+        },function onFailure(errCode) {
+            alert("error:"+errCode.code)
+        })
+        //////
+        navigator.geolocation.getCurrentPosition(function onSuccess(res) {
+            toGeo(res);//返回一个coords对象和一个timestamp属性
+        },function onError(error) {//返回errorCode和Message
+            alert("err:" + error);
+        })
+    }
+    /* (function () {
+
+     }());*/
+    function toAcceleration(res) {
+        var x = res.x;
+        toBind('x', 'acceler1');
+        objInfo.x = x;
+        var y = res.y;
+        toBind('y', 'acceler2');
+        objInfo.y = y;
+        var z = res.z;
+        toBind('z', 'acceler3');
+        objInfo.z = z;
+        var d = new Date(res.timestamp);
+        toBind('d', 'acceler4')
+        objInfo.d = d.toLocaleString();
+    }
+    function toCompass(res) {
+        var magneticHeading = res.magneticHeading;
+        toBind('magneticHeading', 'compass1');
+        objInfo.magneticHeading = magneticHeading;
+        var trueHeading = res.trueHeading;
+        toBind('trueHeading', 'compass2');
+        objInfo.trueHeading = trueHeading;
+        var headingAccuracy = res.headingAccuracy;
+        toBind('headingAccuracy', 'compass3');
+        objInfo.headingAccuracy = headingAccuracy;
+        var d = new Date(res.timestamp);
+        toBind('d', 'compass4');
+        objInfo.d = d.toLocaleString();
+    }
+    function toGeo(res) {
+        var accuracy = res.coords.accuracy;
+        toBind('accuracy', 'geolocation1');
+        objInfo.accuracy = accuracy;
+        var altitude = res.coords.altitude;
+        toBind('altitude', 'geolocation2');
+        objInfo.altitude = altitude;
+        var altitudeAccuracy = res.coords.altitudeAccuracy;
+        toBind('altitudeAccuracy', 'geolocation3');
+        objInfo.altitudeAccuracy = altitudeAccuracy;
+        var heading = res.coords.heading;
+        toBind('heading', 'geolocation4');
+        objInfo.heading = heading;
+        var latitude = res.coords.latitude;
+        toBind('latitude', 'geolocation5');
+        objInfo.latitude = latitude;
+        var longtitude = res.coords.longtitude;
+        toBind('longtitude', 'geolocation6');
+        objInfo.longtitude = longtitude;
+    }
+//报错：Uncaught TypeError: Cannot redefine property: newKey,设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false
+    function toBind(name, id) {
+        Object.defineProperty(objInfo, name, {
+            get: function () {
+                return document.getElementById(id).innerHTML;
+            },
+            set: function (newvalue) {
+                document.getElementById(id).innerHTML = newvalue;
+            },
+            configurable:true
+        });
+    }
+</script>
+<body>
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item center full">
+        <h1 class="topcoat-navigation-bar__title">Accounts</h1>
+    </div>
+</div>
+<div class="topcoat-list">
+    <h3 class="topcoat-list__header">Deposits</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item">Personal Checking - $12,322.10</li>
+        <li class="topcoat-list__item">Personal Savings - $25,322.10</li>
+    </ul>
+</div>
+<div class="topcoat-list">
+    <h3 class="topcoat-list__header">Loans</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item">Mortgage - $662,322</li>
+    </ul>
+</div>
+<div class="topcoat-list">
+    <h3 class="topcoat-list__header">硬件API-Accelerometer：</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item" id="acceler1"></li>
+        <li class="topcoat-list__item" id="acceler2"></li>
+        <li class="topcoat-list__item" id="acceler3"></li>
+        <li class="topcoat-list__item" id="acceler4"></li>
+    </ul>
+    <h3 class="topcoat-list__header">硬件API-Compass：</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item" id="compass1"></li>
+        <li class="topcoat-list__item" id="compass2"></li>
+        <li class="topcoat-list__item" id="compass3"></li>
+        <li class="topcoat-list__item" id="compass4"></li>
+        <li class="topcoat-list__item" id="compass5"></li>
+    </ul>
+    <h3 class="topcoat-list__header">硬件API-Geolocation:</h3>
+    <ul class="topcoat-list__container">
+        <li class="topcoat-list__item" id="geolocation1"></li>
+        <li class="topcoat-list__item" id="geolocation2"></li>
+        <li class="topcoat-list__item" id="geolocation3"></li>
+        <li class="topcoat-list__item" id="geolocation4"></li>
+        <li class="topcoat-list__item" id="geolocation5"></li>
+        <li class="topcoat-list__item" id="geolocation6"></li>
+    </ul>
+</div>
+<div>
+    <button class="topcoat-button--cta">Sign Out</button>
+</div>
+</body>
+</html>

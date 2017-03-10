@@ -2,22 +2,60 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-type" content="text/html;charset=utf-8"><!-- 内容类型：标准的HTML -->
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width;"/>
     <!-- viewport告诉浏览器占用屏幕多大面积及怎样缩放内容 说明html页面占用全部屏幕并以其100%大小呈现，并且不允许用户以任何形式缩放页面 -->
     <!-- viewport和相关属性不是必需的，如果不设置浏览器将使用它的默认设置 -->
     <title>Hello_2</title>
 </head>
-<script src="../cordova.js" type="text/javascript" charset="uft-8"></script><!-- 加载了核心的Cordova API库，应用就可以使用核心Cordova功能 -->
+<script src="../cordova.js" type="text/javascript" charset="uft-8"></script>
+<!-- 加载了核心的Cordova API库，应用就可以使用核心Cordova功能 -->
 <!-- 因为3.0以后核心API迁移到了插件中，cordova.js文件只保留了一些基本功能 -->
+
 <script type="text/javascript">
     function onBodyLoad() {
-        document.addEventListener("deviceready",onDeviceReady,false)
+        document.addEventListener("deviceready", onDeviceReady, false)
     }
     function onDeviceReady() {
-        navigator.notification.alert("Cordova is ready")
+        br = '<br/>';
+        var element = document.getElementById('appInfo');
+        element.innerHTML = 'Cordova Version:' + device.cordova + br + 'Platform:' + device.platform + br + 'Model:' + device.model + br + 'OS version:' + device.version;
+
+    }
+    function goto() {
+        console.log("I am long click");
+        console.warn("I am warn click");
+        console.error("I am error click");
+        var ct = navigator.connection.type;
+        if (ct != Connection.NONE) {
+            //navigator.notification.alert("Cordova is ready")
+            navigator.notification.beep(10)
+            navigator.notification.confirm("Go?", confirmG, '确认', 'Yes,No');
+        } else {
+            navigator.vibrate(1000);
+            //navigator.notification.alert("无网络")
+        }
+        navigator.notification.prompt("请输入用户名", getData, "输入", ['提交', '取消'], 'admin');
+        /*window.location='jquery_mobile.html';*/
+        //window.location='topcoast_1.html';
+    }
+    function confirmG(buttonNum) {
+        if (buttonNum == 1) {
+            window.location = 'topcoast_1.html';
+        } else if (buttonNum == 2) {
+            window.location = 'jquery_mobile.html';
+        }
+    }
+    function getData(res) {
+        navigator.notification.alert(res.buttonIndex);
+        navigator.notification.alert(res);
     }
 </script>
 <body onload="onBodyLoad()">
 <p>Hello</p>
+<p id="appInfo">Waiting for Cordova Init to complete</p>
+<p>
+    <button onclick="goto()">点我</button>
+</p>
 </body>
 </html>
